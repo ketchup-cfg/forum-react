@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import List from "@mui/material/List";
 import TopicListItem from "./components/TopicListItem";
 
 function App() {
@@ -18,11 +19,11 @@ function App() {
   }
 
   return (
-    <ul>
+    <List>
       {topics.map((topic) => (
         <TopicListItem topic={topic} />
       ))}
-    </ul>
+    </List>
   );
 }
 
