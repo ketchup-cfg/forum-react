@@ -2,16 +2,20 @@ import { useState, useEffect } from "react";
 import Drawer from "@mui/material/Drawer";
 import CircularProgress from "@mui/material/CircularProgress";
 import List from "@mui/material/List";
+import { Topic } from "../../types";
+import { fetchAllTopics } from "../../services/topics";
 import TopicListItem from "./TopicListItem";
 
 export const TopicSidebar = () => {
-  const [topics, setTopics] = useState([]);
+  const [topics, setTopics] = useState<Topic[]>([]);
 
   useEffect(() => {
     const getTopics = async () => {
-      const response = await fetch("http://localhost:3001/topics");
-      const fetchedTopics = await response.json();
-      setTopics(fetchedTopics);
+      const fetchedTopics = await fetchAllTopics();
+
+      if (fetchedTopics) {
+        setTopics(fetchedTopics);
+      }
     };
     getTopics();
   }, []);
@@ -35,7 +39,7 @@ export const TopicSidebar = () => {
     >
       <List>
         {topics.map((topic) => (
-          <TopicListItem topic={topic} />
+          <TopicListItem key={topic.id} topic={topic} />
         ))}
       </List>
     </Drawer>
