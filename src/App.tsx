@@ -11,7 +11,7 @@ function App() {
       setTopics(fetchedTopics);
     };
     getTopics();
-  });
+  }, []);
 
   if (!topics) {
     return <div>Loading...</div>;
