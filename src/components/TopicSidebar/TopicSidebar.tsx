@@ -1,26 +1,37 @@
 import { useState, useEffect } from "react";
 import Drawer from "@mui/material/Drawer";
 import CircularProgress from "@mui/material/CircularProgress";
+import ListItemText from "@mui/material/ListItemText";
+import ListItem from "@mui/material/ListItem";
 import List from "@mui/material/List";
 import { Topic } from "../../types";
 import { fetchAllTopics } from "../../services/topics";
 import TopicListItem from "./TopicListItem";
 
 export const TopicSidebar = () => {
-  const [topics, setTopics] = useState<Topic[]>([]);
+  const [topics, setTopics] = useState<Topic[] | undefined>(undefined);
+  const [isLoading, setLoading] = useState(false);
 
   useEffect(() => {
     const getTopics = async () => {
-      const fetchedTopics = await fetchAllTopics();
+      try {
+        const fetchedTopics = await fetchAllTopics();
 
-      if (fetchedTopics) {
-        setTopics(fetchedTopics);
+        if (fetchedTopics) {
+          setTopics(fetchedTopics);
+        }
+      } catch (error) {
+        console.error(error);
       }
+
+      setLoading(false);
     };
+
+    setLoading(true);
     getTopics();
   }, []);
 
-  if (!topics) {
+  if (isLoading) {
     return <CircularProgress />;
   }
 
@@ -38,9 +49,13 @@ export const TopicSidebar = () => {
       anchor="left"
     >
       <List>
-        {topics.map((topic) => (
-          <TopicListItem key={topic.id} topic={topic} />
-        ))}
+        {typeof topics === "undefined" ? (
+          <ListItem>
+            <ListItemText primary="No topics listed" />
+          </ListItem>
+        ) : (
+          topics.map((topic) => <TopicListItem key={topic.id} topic={topic} />)
+        )}
       </List>
     </Drawer>
   );
