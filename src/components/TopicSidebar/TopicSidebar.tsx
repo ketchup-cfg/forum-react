@@ -1,9 +1,5 @@
 import { useState, useEffect } from "react";
-import Drawer from "@mui/material/Drawer";
-import CircularProgress from "@mui/material/CircularProgress";
-import ListItemText from "@mui/material/ListItemText";
-import ListItem from "@mui/material/ListItem";
-import List from "@mui/material/List";
+import styles from "./TopicSidebar.module.css";
 import { Topic } from "../../types";
 import { fetchAllTopics } from "../../services/topics";
 import TopicListItem from "./TopicListItem";
@@ -31,32 +27,14 @@ export const TopicSidebar = () => {
     getTopics();
   }, []);
 
-  if (isLoading) {
-    return <CircularProgress />;
-  }
-
   return (
-    <Drawer
-      sx={{
-        width: 240,
-        flexShrink: 0,
-        "& .MuiDrawer-paper": {
-          width: 240,
-          boxSizing: "border-box",
-        },
-      }}
-      variant="permanent"
-      anchor="left"
-    >
-      <List>
-        {typeof topics === "undefined" ? (
-          <ListItem>
-            <ListItemText primary="No topics listed" />
-          </ListItem>
-        ) : (
-          topics.map((topic) => <TopicListItem key={topic.id} topic={topic} />)
-        )}
-      </List>
-    </Drawer>
+    <section>
+      <ul className={styles.topicSidebar}>
+        {isLoading && <li>Loading...</li>}
+        {topics?.map((topic) => (
+          <TopicListItem key={topic.id} topic={topic} />
+        ))}
+      </ul>
+    </section>
   );
 };

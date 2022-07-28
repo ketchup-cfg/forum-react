@@ -1,0 +1,7 @@
+.topicSidebarItem::before {
+  content: '+ ';
+}
+
+.topicSidebarItem:hover {
+  background-color: #F5F5F5;
+}

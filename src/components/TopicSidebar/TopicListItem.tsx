@@ -1,16 +1,8 @@
-import ListItem from "@mui/material/ListItem";
-import ListItemText from "@mui/material/ListItemText";
-import ListItemButton from "@mui/material/ListItemButton";
+import styles from "./TopicListItem.module.css";
 import { Topic } from "../../types";
 
 const TopicListItem = ({ topic }: { topic: Topic }) => {
-  return (
-    <ListItem>
-      <ListItemButton component="a" href="#">
-        <ListItemText primary={`+ ${topic.name}`} />
-      </ListItemButton>
-    </ListItem>
-  );
+  return <li className={styles.topicSidebarItem}>{topic.name}</li>;
 };
 
 export default TopicListItem;
