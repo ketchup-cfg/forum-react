@@ -1,15 +1,17 @@
 .topicSidebar {
-  display: inline-block;
   width: 275px;
   height: 100vh;
   border-right: 1px solid black;
 }
 
 .topicSidebar h2 {
+  font-weight: 600;
   margin-left: 0.8ch;
 }
 
 .topicSidebarList {
+  overflow-x: hidden;
+  overflow-y: auto;
   list-style: none;
   padding-left: 0%;
 }
