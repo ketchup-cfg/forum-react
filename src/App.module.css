@@ -1,3 +1,21 @@
 .appContainer {
   display: flex;
 }
+
+.topicSidebarButton {
+  width: 35px;
+  height: 35px;
+  border-radius: 15%;
+  background: transparent;
+}
+
+.appCanvas {
+  display: flex;
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+.appContent {
+  margin-left: 20px;
+  margin-right: 20px;
+}

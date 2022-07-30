@@ -29,8 +29,9 @@ export const TopicSidebar = () => {
 
   return (
     <section className={styles.topicSidebar}>
-      <h2>Topics</h2>
-      <hr />
+      <div className={styles.topicHeader}>
+        <h2>Topics</h2>
+      </div>
       <ul className={styles.topicSidebarList}>
         {isLoading && <li>Loading...</li>}
         {topics?.map((topic) => (

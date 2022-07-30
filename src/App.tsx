@@ -3,18 +3,20 @@ import styles from "./App.module.css";
 import { TopicSidebar } from "./components/TopicSidebar";
 
 const App = () => {
-  const [sidebarIsVisible, setSidebarVisibility] = useState(true);
+  const [sidebarIsVisible, setSidebarVisibility] = useState(false);
   return (
     <div className={styles.appContainer}>
       {sidebarIsVisible && <TopicSidebar />}
-      <main>
+      <div className={styles.appCanvas}>
         <button
+          className={styles.topicSidebarButton}
           type="button"
           onClick={() => setSidebarVisibility(!sidebarIsVisible)}
         >
-          {sidebarIsVisible ? "Hide Sidebar" : "Show Sidebar"}
+          <i className="fa-solid fa-bars"></i>
         </button>
-      </main>
+        <main className={styles.appContent}></main>
+      </div>
     </div>
   );
 };

@@ -4,9 +4,17 @@
   border-right: 1px solid black;
 }
 
-.topicSidebar h2 {
+.topicHeader {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid black;
+}
+
+.topicHeader h2 {
   font-weight: 600;
   margin-left: 0.8ch;
+  margin-top: 0%;
+  margin-bottom: 0%;
 }
 
 .topicSidebarList {
