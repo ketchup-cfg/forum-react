@@ -28,8 +28,10 @@ export const TopicSidebar = () => {
   }, []);
 
   return (
-    <section>
-      <ul className={styles.topicSidebar}>
+    <section className={styles.topicSidebar}>
+      <h2>Topics</h2>
+      <hr />
+      <ul className={styles.topicSidebarList}>
         {isLoading && <li>Loading...</li>}
         {topics?.map((topic) => (
           <TopicListItem key={topic.id} topic={topic} />
