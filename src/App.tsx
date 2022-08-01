@@ -6,7 +6,7 @@ const App = () => {
   const [sidebarIsVisible, setSidebarVisibility] = useState(false);
   return (
     <div className={styles.appContainer}>
-      {sidebarIsVisible && <TopicSidebar />}
+      <div>{sidebarIsVisible && <TopicSidebar />}</div>
       <div className={styles.appCanvas}>
         <button
           className={styles.topicSidebarButton}
@@ -15,7 +15,14 @@ const App = () => {
         >
           <i className="fa-solid fa-bars"></i>
         </button>
-        <main className={styles.appContent}></main>
+        <main></main>
+        <button
+          className={styles.topicSidebarButton}
+          type="button"
+          onClick={() => alert("AHHHH")}
+        >
+          <i className="fa-solid fa-bars"></i>
+        </button>
       </div>
     </div>
   );

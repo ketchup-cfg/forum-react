@@ -1,5 +1,7 @@
 .appContainer {
-  display: flex;
+  display: grid;
+  grid-template-columns: min-content auto min-content;
+  gap: 10px;
 }
 
 .topicSidebarButton {
@@ -10,12 +12,9 @@
 }
 
 .appCanvas {
-  display: flex;
-  padding-left: 20px;
-  padding-top: 20px;
-}
-
-.appContent {
-  margin-left: 20px;
-  margin-right: 20px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 50px auto 50px;
+  padding-top: 1rem;
+  gap: 3rem;
 }
