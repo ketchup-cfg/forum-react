@@ -1,7 +1,7 @@
 .topicSidebar {
   width: 275px;
   height: 100vh;
-  border-right: 1px solid black;
+  border-inline-end: 1px solid black;
 }
 
 .topicHeader {
