@@ -13,7 +13,7 @@ const App = () => {
           type="button"
           onClick={() => setSidebarVisibility(!sidebarIsVisible)}
         >
-          <i className="fa-solid fa-bars"></i>
+          <i className={`fa-solid fa-bars ${styles.icons}`}></i>
         </button>
         <main></main>
         <button
@@ -21,7 +21,7 @@ const App = () => {
           type="button"
           onClick={() => alert("AHHHH")}
         >
-          <i className="fa-solid fa-bars"></i>
+          <i className={`fa-solid fa-bars ${styles.icons}`}></i>
         </button>
       </div>
     </div>
