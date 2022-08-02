@@ -8,3 +8,69 @@ body {
   margin: 0%;
   color: #333333;
 }
+
+.appContainer {
+  display: grid;
+  grid-template-columns: min-content auto min-content;
+  gap: 1rem;
+}
+
+.topicSidebarButton {
+  width: 35px;
+  height: 35px;
+  border: 1px solid black;
+  border-radius: 15%;
+  background: transparent;
+}
+
+.appCanvas {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 50px auto 50px;
+  padding-top: 1rem;
+  gap: 3rem;
+}
+
+.mainWrapper {
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+.icons {
+  color: black;
+}
+
+.topicSidebarItem {
+  font-size: 1.3rem;
+  padding: 0.8ch;
+}
+
+.topicSidebarItem:hover {
+  background-color: #F5F5F5;
+}
+
+.topicSidebar {
+  width: 275px;
+  height: 100vh;
+  border-inline-end: 1px solid black;
+}
+
+.topicHeader {
+  padding-top: 20px;
+  padding-right: 20px;
+  border-bottom: 1px solid black;
+}
+
+.topicHeader h2 {
+  font-weight: 600;
+  margin-left: 0.8ch;
+  margin-top: 0%;
+  margin-bottom: 0%;
+}
+
+.topicSidebarList {
+  overflow-x: hidden;
+  overflow-y: auto;
+  list-style: none;
+  padding-left: 0%;
+}

@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import styles from "./TopicSidebar.module.css";
 import { Topic } from "../../types";
 import { fetchAllTopics } from "../../services/topics";
 import TopicListItem from "./TopicListItem";
@@ -28,11 +27,11 @@ export const TopicSidebar = () => {
   }, []);
 
   return (
-    <section className={styles.topicSidebar}>
-      <div className={styles.topicHeader}>
+    <section className="topicSidebar">
+      <div className="topicHeader">
         <h2>Topics</h2>
       </div>
-      <ul className={styles.topicSidebarList}>
+      <ul className="topicSidebarList">
         {isLoading && <li>Loading...</li>}
         {topics?.map((topic) => (
           <TopicListItem key={topic.id} topic={topic} />

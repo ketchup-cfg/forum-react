@@ -1,5 +1,4 @@
 import { useState } from "react";
-import styles from "./App.module.css";
 import { TopicSidebar } from "./components/TopicSidebar";
 
 const topicSidebarWasClicked = (node: Node) => {
@@ -19,24 +18,24 @@ const App = () => {
   };
 
   return (
-    <div className={styles.appContainer} onClick={handleAppClick}>
+    <div className="appContainer" onClick={handleAppClick}>
       <div id="topicSidebar">{sidebarIsVisible && <TopicSidebar />}</div>
-      <div className={styles.appCanvas}>
+      <div className="appCanvas">
         <button
-          className={styles.topicSidebarButton}
+          className="topicSidebarButton"
           type="button"
           id="topicSidebarButton"
           onClick={() => setSidebarVisibility(!sidebarIsVisible)}
         >
-          <i className={`fa-solid fa-bars ${styles.icons}`}></i>
+          <i className="fa-solid fa-bars icons"></i>
         </button>
-        <main className={styles.mainWrapper}></main>
+        <main className="mainWrapper"></main>
         <button
-          className={styles.topicSidebarButton}
+          className="topicSidebarButton"
           type="button"
           onClick={() => alert("AHHHH")}
         >
-          <i className={`fa-solid fa-bars ${styles.icons}`}></i>
+          <i className="fa-solid fa-bars icons"></i>
         </button>
       </div>
     </div>
