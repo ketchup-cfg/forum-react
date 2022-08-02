@@ -20,6 +20,12 @@
   gap: 3rem;
 }
 
+.mainWrapper {
+	max-width: 100%;
+	margin: 0 auto;
+}
+
 .icons {
   color: black;
+
 }
