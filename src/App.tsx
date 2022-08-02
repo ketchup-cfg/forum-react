@@ -2,17 +2,18 @@ import { useState } from "react";
 import styles from "./App.module.css";
 import { TopicSidebar } from "./components/TopicSidebar";
 
+const topicSidebarWasClicked = (node: Node) => {
+  const topicSidebar = document.querySelector("#topicSidebar");
+  const topicSidebarButton = document.querySelector("#topicSidebarButton");
+
+  return !topicSidebar?.contains(node) && !topicSidebarButton?.contains(node);
+};
+
 const App = () => {
   const [sidebarIsVisible, setSidebarVisibility] = useState(false);
 
-  const handleAppClick = (event: React.MouseEvent) => {
-    const topicSidebar = document.querySelector("#topicSidebar");
-    const topicSidebarButton = document.querySelector("#topicSidebarButton");
-
-    if (
-      !topicSidebar?.contains(event.target as Node) &&
-      !topicSidebarButton?.contains(event.target as Node)
-    ) {
+  const handleAppClick = (event: React.MouseEvent<HTMLElement>) => {
+    if (topicSidebarWasClicked(event.target as Node)) {
       setSidebarVisibility(false);
     }
   };
