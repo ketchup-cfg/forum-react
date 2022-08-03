@@ -31,6 +31,7 @@ export const TopicSidebar = () => {
       <div className="topicHeader">
         <h2>Topics</h2>
       </div>
+      <hr />
       <ul className="topicSidebarList">
         {isLoading && <li>Loading...</li>}
         {topics?.map((topic) => (
