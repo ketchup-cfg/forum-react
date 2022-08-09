@@ -12,9 +12,6 @@ export const Navbar = ({
         <NavbarItem>
           <Button onClick={toggleTopicSidebar} text={"Topics"} />
         </NavbarItem>
-        <NavbarItem>
-          <p className="inline-block">BAKAW</p>
-        </NavbarItem>
       </ul>
     </nav>
   );
