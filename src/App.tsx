@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { TopicSidebar } from "./components/TopicSidebar";
+import { Navbar } from "./components/Navbar";
+import "./index.css";
 
 const topicSidebarWasClicked = (node: Node) => {
   const topicSidebar = document.querySelector("#topicSidebar");
@@ -18,26 +20,12 @@ const App = () => {
   };
 
   return (
-    <div className="appContainer" onClick={handleAppClick}>
-      <div id="topicSidebar">{sidebarIsVisible && <TopicSidebar />}</div>
-      <div className="appCanvas">
-        <button
-          className="topicSidebarButton"
-          type="button"
-          id="topicSidebarButton"
-          onClick={() => setSidebarVisibility(!sidebarIsVisible)}
-        >
-          <i className="fa-solid fa-bars icons"></i>
-        </button>
-        <main className="mainWrapper"></main>
-        <button
-          className="topicSidebarButton"
-          type="button"
-          onClick={() => alert("AHHHH")}
-        >
-          <i className="fa-solid fa-bars icons"></i>
-        </button>
-      </div>
+    <div onClick={handleAppClick}>
+      <Navbar
+        toggleTopicSidebar={() => setSidebarVisibility(!sidebarIsVisible)}
+      />
+      {sidebarIsVisible && <TopicSidebar />}
+      <main className={`m-auto w-3/4 ${sidebarIsVisible ? "blur" : ""}`}></main>
     </div>
   );
 };

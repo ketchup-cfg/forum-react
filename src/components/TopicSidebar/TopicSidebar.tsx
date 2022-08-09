@@ -27,15 +27,15 @@ export const TopicSidebar = () => {
   }, []);
 
   return (
-    <section className="topicSidebar">
-      <div className="topicHeader">
-        <h2>Topics</h2>
-      </div>
-      <hr />
-      <ul className="topicSidebarList">
+    <section className="absolute z-10 ml-4 w-max h-max bg-slate-200 dark:bg-slate-800 pl-2 pr-5">
+      <ul>
+        <TopicListItem url="/" text="Create New Topic" />
+        <li>
+          <hr className="h-1" />
+        </li>
         {isLoading && <li>Loading...</li>}
         {topics?.map((topic) => (
-          <TopicListItem key={topic.id} topic={topic} />
+          <TopicListItem key={topic.id} url="/" text={topic.name} />
         ))}
       </ul>
     </section>

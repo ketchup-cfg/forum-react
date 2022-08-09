@@ -1,9 +1,7 @@
-import { Topic } from "../../types";
-
-const TopicListItem = ({ topic }: { topic: Topic }) => {
+const TopicListItem = ({ url, text }: { url: string; text: string }) => {
   return (
-    <li className="topicSidebarItem">
-      <a href="/">{topic.name}</a>
+    <li className="h-8">
+      <a href={url}>{text}</a>
     </li>
   );
 };
