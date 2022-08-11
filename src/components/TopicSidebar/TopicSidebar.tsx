@@ -4,9 +4,9 @@ import { fetchAllTopics } from "../../services/topics";
 import TopicListItem from "./TopicListItem";
 
 export const TopicSidebar = ({
-  toggleVisibility,
+  closeTopicSidebar,
 }: {
-  toggleVisibility: React.MouseEventHandler<HTMLButtonElement>;
+  closeTopicSidebar: React.MouseEventHandler<HTMLButtonElement>;
 }) => {
   const [topics, setTopics] = useState<Topic[] | undefined>(undefined);
 
@@ -27,23 +27,23 @@ export const TopicSidebar = ({
   }, []);
 
   return (
-    <section className="h-full w-64 fixed z-1 top-0 left-0 overflow-x-hidden pt-16 duration-500 bg-slate-200 dark:bg-slate-800">
+    <section className="h-full w-64 fixed z-1 top-0 left-0 overflow-x-hidden pt-16 bg-slate-200 dark:bg-slate-800">
       <button
         className="absolute top-0 right-6 text-4xl ml-14"
         type="button"
-        onClick={toggleVisibility}
+        onClick={closeTopicSidebar}
       >
         &times;
       </button>
       <ul>
         <TopicListItem>
-          <a className="py-2 pr-2 pl-8 text-lg block transition-300" href="/">
+          <a className="py-2 pr-2 pl-8 text-lg block" href="/">
             Create New Topic
           </a>
         </TopicListItem>
         {topics?.map((topic) => (
           <TopicListItem key={topic.id}>
-            <a className="py-2 pr-2 pl-8 text-lg block transition-300" href="/">
+            <a className="py-2 pr-2 pl-8 text-lg block" href="/">
               {topic.name}
             </a>
           </TopicListItem>

@@ -9,15 +9,16 @@ const App = () => {
   return (
     <>
       {sidebarIsVisible && (
-        <TopicSidebar
-          toggleVisibility={() => setSidebarVisibility(!sidebarIsVisible)}
-        />
+        <TopicSidebar closeTopicSidebar={() => setSidebarVisibility(false)} />
       )}
       <div className={`${sidebarIsVisible ? "ml-64" : "ml-0"}`}>
         <Navbar
           toggleTopicSidebar={() => setSidebarVisibility(!sidebarIsVisible)}
         />
-        <main></main>
+        <main
+          className="min-h-screen"
+          onClick={() => setSidebarVisibility(false)}
+        ></main>
       </div>
     </>
   );
