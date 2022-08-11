@@ -1,5 +1,4 @@
 import { NavbarItem } from "./NavbarItem";
-import { Button } from "../Button";
 
 export const Navbar = ({
   toggleTopicSidebar,
@@ -7,12 +6,8 @@ export const Navbar = ({
   toggleTopicSidebar: React.MouseEventHandler<HTMLButtonElement>;
 }) => {
   return (
-    <nav className="bg-slate-200 dark:bg-slate-800">
-      <ul>
-        <NavbarItem>
-          <Button onClick={toggleTopicSidebar} text={"Topics"} />
-        </NavbarItem>
-      </ul>
+    <nav className="flex flex-wrap justify-start gap-4 py-4 px-4">
+      <NavbarItem onClick={toggleTopicSidebar} text={"Topics"} />
     </nav>
   );
 };

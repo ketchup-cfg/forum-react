@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import { Topic } from "../../types";
 import { fetchAllTopics } from "../../services/topics";
-import TopicListItem from "./TopicListItem";
+import { TopicListItem } from "./TopicListItem";
+import { TopicSidebarLink } from "./TopicSidebarLink";
+import { Button } from "./../Button";
 
 export const TopicSidebar = ({
   closeTopicSidebar,
@@ -27,25 +29,22 @@ export const TopicSidebar = ({
   }, []);
 
   return (
-    <section className="h-full w-64 fixed z-1 top-0 left-0 overflow-x-hidden pt-16 bg-slate-200 dark:bg-slate-800">
-      <button
-        className="absolute top-0 right-6 text-4xl ml-14"
-        type="button"
+    <section className="h-full w-64 fixed z-1 top-0 left-0 overflow-x-hidden pt-16 bg-slate-200 dark:bg-zinc-900">
+      <Button
         onClick={closeTopicSidebar}
-      >
-        &times;
-      </button>
+        label="&times;"
+        fontSize={"text-4xl"}
+        color={"bg-transparent"}
+        margin="ml-14"
+        position="absolute top-0 right-6"
+      />
       <ul>
         <TopicListItem>
-          <a className="py-2 pr-2 pl-8 text-lg block" href="/">
-            Create New Topic
-          </a>
+          <TopicSidebarLink href="/" text="Create New Topic" />
         </TopicListItem>
         {topics?.map((topic) => (
           <TopicListItem key={topic.id}>
-            <a className="py-2 pr-2 pl-8 text-lg block" href="/">
-              {topic.name}
-            </a>
+            <TopicSidebarLink href="/" text={topic.name} />
           </TopicListItem>
         ))}
       </ul>

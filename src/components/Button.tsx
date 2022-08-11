@@ -1,18 +1,28 @@
 export const Button = ({
-  text,
+  color,
+  label,
+  padding,
+  fontSize,
+  margin,
+  position,
   onClick,
 }: {
-  text: string;
+  color: string;
+  label: string;
+  padding?: string;
+  fontSize: string;
+  margin: string;
+  position?: string;
   onClick: React.MouseEventHandler<HTMLButtonElement>;
 }) => {
   return (
     <button
       id="topicSidebarButton"
-      className="rounded-lg bg-emerald-600 hover:bg-emerald-700 p-1.5"
+      className={`${position} ${color} ${padding} ${margin} ${fontSize}`}
       type="button"
       onClick={onClick}
     >
-      {text}
+      {label}
     </button>
   );
 };

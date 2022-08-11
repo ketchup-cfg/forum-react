@@ -1,5 +1,3 @@
-const TopicListItem = ({ children }: { children: React.ReactNode }) => {
+export const TopicListItem = ({ children }: { children: React.ReactNode }) => {
   return <li>{children}</li>;
 };
-
-export default TopicListItem;
