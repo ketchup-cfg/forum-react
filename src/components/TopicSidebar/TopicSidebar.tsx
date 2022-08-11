@@ -3,9 +3,12 @@ import { Topic } from "../../types";
 import { fetchAllTopics } from "../../services/topics";
 import TopicListItem from "./TopicListItem";
 
-export const TopicSidebar = () => {
+export const TopicSidebar = ({
+  toggleVisibility,
+}: {
+  toggleVisibility: React.MouseEventHandler<HTMLButtonElement>;
+}) => {
   const [topics, setTopics] = useState<Topic[] | undefined>(undefined);
-  const [isLoading, setLoading] = useState(false);
 
   useEffect(() => {
     const getTopics = async () => {
@@ -18,24 +21,32 @@ export const TopicSidebar = () => {
       } catch (error) {
         console.error(error);
       }
-
-      setLoading(false);
     };
 
-    setLoading(true);
     getTopics();
   }, []);
 
   return (
-    <section className="absolute z-10 ml-4 w-max h-max bg-slate-200 dark:bg-slate-800 pl-2 pr-5">
+    <section className="h-full w-64 fixed z-1 top-0 left-0 overflow-x-hidden pt-16 duration-500 bg-slate-200 dark:bg-slate-800">
+      <button
+        className="absolute top-0 right-6 text-4xl ml-14"
+        type="button"
+        onClick={toggleVisibility}
+      >
+        &times;
+      </button>
       <ul>
-        <TopicListItem url="/" text="Create New Topic" />
-        <li>
-          <hr className="h-1" />
-        </li>
-        {isLoading && <li>Loading...</li>}
+        <TopicListItem>
+          <a className="py-2 pr-2 pl-8 text-lg block transition-300" href="/">
+            Create New Topic
+          </a>
+        </TopicListItem>
         {topics?.map((topic) => (
-          <TopicListItem key={topic.id} url="/" text={topic.name} />
+          <TopicListItem key={topic.id}>
+            <a className="py-2 pr-2 pl-8 text-lg block transition-300" href="/">
+              {topic.name}
+            </a>
+          </TopicListItem>
         ))}
       </ul>
     </section>

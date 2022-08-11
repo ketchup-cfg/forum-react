@@ -1,9 +1,5 @@
-const TopicListItem = ({ url, text }: { url: string; text: string }) => {
-  return (
-    <li className="h-8">
-      <a href={url}>{text}</a>
-    </li>
-  );
+const TopicListItem = ({ children }: { children: React.ReactNode }) => {
+  return <li>{children}</li>;
 };
 
 export default TopicListItem;
