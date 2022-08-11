@@ -7,7 +7,7 @@ export const Navbar = ({
   toggleTopicSidebar: React.MouseEventHandler<HTMLButtonElement>;
 }) => {
   return (
-    <nav className="w-full bg-slate-200 dark:bg-slate-800">
+    <nav className="bg-slate-200 dark:bg-slate-800">
       <ul>
         <NavbarItem>
           <Button onClick={toggleTopicSidebar} text={"Topics"} />
