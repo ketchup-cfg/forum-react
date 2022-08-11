@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Topic } from "../../types";
 import { fetchAllTopics } from "../../services/topics";
-import { TopicListItem } from "./TopicListItem";
+import { TopicSidebarItem } from "./TopicSidebarItem";
 import { TopicSidebarLink } from "./TopicSidebarLink";
 import { Button } from "./../Button";
 
@@ -33,19 +33,19 @@ export const TopicSidebar = ({
       <Button
         onClick={closeTopicSidebar}
         label="&times;"
-        fontSize={"text-4xl"}
-        color={"bg-transparent"}
+        fontSize="text-4xl"
+        color="bg-transparent"
         margin="ml-14"
         position="absolute top-0 right-6"
       />
       <ul>
-        <TopicListItem>
+        <TopicSidebarItem>
           <TopicSidebarLink href="/" text="Create New Topic" />
-        </TopicListItem>
+        </TopicSidebarItem>
         {topics?.map((topic) => (
-          <TopicListItem key={topic.id}>
+          <TopicSidebarItem key={topic.id}>
             <TopicSidebarLink href="/" text={topic.name} />
-          </TopicListItem>
+          </TopicSidebarItem>
         ))}
       </ul>
     </section>
