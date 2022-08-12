@@ -11,7 +11,10 @@ const App = () => {
       {sidebarIsVisible && (
         <TopicSidebar closeTopicSidebar={() => setSidebarVisibility(false)} />
       )}
-      <div className={`${sidebarIsVisible ? "ml-64" : "ml-0"}`}>
+      <div
+        data-testid="app-content"
+        className={`${sidebarIsVisible ? "ml-64" : "ml-0"}`}
+      >
         <Navbar
           toggleTopicSidebar={() => setSidebarVisibility(!sidebarIsVisible)}
         />

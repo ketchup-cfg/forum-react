@@ -2,14 +2,22 @@ import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import App from "../App";
 
-test("Topics button can be found", async () => {
-  render(<App />);
+describe("When the application is initially rendered...", () => {
+  test("The topics button is visible", async () => {
+    render(<App />);
 
-  expect(screen.getByText("Topics")).toBeInTheDocument();
-});
+    expect(screen.getByText("Topics")).toBeVisible();
+  });
 
-test("Topic sidebar is not shown by default", async () => {
-  render(<App />);
+  test("The topic sidebar is not present", async () => {
+    render(<App />);
 
-  expect(screen.queryByText("Create New Topic")).not.toBeInTheDocument();
+    expect(screen.queryByText("Create New Topic")).not.toBeInTheDocument();
+  });
+
+  test("The navbar and main content have the ml-0 class", async () => {
+    render(<App />);
+
+    expect(screen.queryByTestId("app-content")).toHaveClass("ml-0");
+  });
 });
