@@ -12,13 +12,14 @@ const App = () => {
         <TopicSidebar closeTopicSidebar={() => setSidebarVisibility(false)} />
       )}
       <div
-        data-testid="app-content"
+        data-testid="app-main-screeen"
         className={`${sidebarIsVisible ? "ml-64" : "ml-0"}`}
       >
         <Navbar
           toggleTopicSidebar={() => setSidebarVisibility(!sidebarIsVisible)}
         />
         <main
+          data-testid="app-main-content"
           className="min-h-screen"
           onClick={() => setSidebarVisibility(false)}
         ></main>
