@@ -6,7 +6,7 @@ describe("When the application is initially rendered...", () => {
   test("The topics button is visible", async () => {
     render(<App />);
 
-    expect(screen.queryByText("Topics")).toBeVisible();
+    expect(screen.getByText("Topics")).toBeVisible();
   });
 
   test("The topic sidebar is not present", async () => {
@@ -18,7 +18,7 @@ describe("When the application is initially rendered...", () => {
   test("The navbar and main content have the ml-0 class", async () => {
     render(<App />);
 
-    expect(screen.queryByTestId("app-main-screeen")).toHaveClass("ml-0");
+    expect(screen.getByTestId("app-main-screeen")).toHaveClass("ml-0");
   });
 });
 
@@ -26,40 +26,40 @@ describe("When the topic button in the navbar is clicked...", () => {
   test("The topics button is still visible", async () => {
     render(<App />);
     fireEvent(
-      screen.queryByText("Topics"),
+      screen.getByText("Topics"),
       new MouseEvent("click", {
         bubbles: true,
         cancelable: true,
       })
     );
 
-    expect(screen.queryByText("Topics")).toBeVisible();
+    expect(screen.getByText("Topics")).toBeVisible();
   });
 
   test("The topic sidebar is displayed", async () => {
     render(<App />);
     fireEvent(
-      screen.queryByText("Topics"),
+      screen.getByText("Topics"),
       new MouseEvent("click", {
         bubbles: true,
         cancelable: true,
       })
     );
 
-    expect(screen.queryByText("Create New Topic")).toBeVisible();
+    expect(screen.getByText("Create New Topic")).toBeVisible();
   });
 
   test("The navbar and main content have the ml-64 class", async () => {
     render(<App />);
     fireEvent(
-      screen.queryByText("Topics"),
+      screen.getByText("Topics"),
       new MouseEvent("click", {
         bubbles: true,
         cancelable: true,
       })
     );
 
-    expect(screen.queryByTestId("app-main-screeen")).toHaveClass("ml-64");
+    expect(screen.getByTestId("app-main-screeen")).toHaveClass("ml-64");
   });
 });
 
@@ -67,34 +67,34 @@ describe("When the topic button in the navbar is clicked and then clicked again.
   test("The topics button is visible", async () => {
     render(<App />);
     fireEvent(
-      screen.queryByText("Topics"),
+      screen.getByText("Topics"),
       new MouseEvent("click", {
         bubbles: true,
         cancelable: true,
       })
     );
     fireEvent(
-      screen.queryByText("Topics"),
+      screen.getByText("Topics"),
       new MouseEvent("click", {
         bubbles: true,
         cancelable: true,
       })
     );
 
-    expect(screen.queryByText("Topics")).toBeVisible();
+    expect(screen.getByText("Topics")).toBeVisible();
   });
 
   test("The topic sidebar is not present", async () => {
     render(<App />);
     fireEvent(
-      screen.queryByText("Topics"),
+      screen.getByText("Topics"),
       new MouseEvent("click", {
         bubbles: true,
         cancelable: true,
       })
     );
     fireEvent(
-      screen.queryByText("Topics"),
+      screen.getByText("Topics"),
       new MouseEvent("click", {
         bubbles: true,
         cancelable: true,
@@ -107,21 +107,21 @@ describe("When the topic button in the navbar is clicked and then clicked again.
   test("The navbar and main content have the ml-0 class", async () => {
     render(<App />);
     fireEvent(
-      screen.queryByText("Topics"),
+      screen.getByText("Topics"),
       new MouseEvent("click", {
         bubbles: true,
         cancelable: true,
       })
     );
     fireEvent(
-      screen.queryByText("Topics"),
+      screen.getByText("Topics"),
       new MouseEvent("click", {
         bubbles: true,
         cancelable: true,
       })
     );
 
-    expect(screen.queryByTestId("app-main-screeen")).toHaveClass("ml-0");
+    expect(screen.getByTestId("app-main-screeen")).toHaveClass("ml-0");
   });
 });
 
@@ -129,34 +129,34 @@ describe("When the topic button in the navbar is clicked and then the main app c
   test("The topics button is visible", async () => {
     render(<App />);
     fireEvent(
-      screen.queryByText("Topics"),
+      screen.getByText("Topics"),
       new MouseEvent("click", {
         bubbles: true,
         cancelable: true,
       })
     );
     fireEvent(
-      screen.queryByTestId("app-main-content"),
+      screen.getByTestId("app-main-content"),
       new MouseEvent("click", {
         bubbles: true,
         cancelable: true,
       })
     );
 
-    expect(screen.queryByText("Topics")).toBeVisible();
+    expect(screen.getByText("Topics")).toBeVisible();
   });
 
   test("The topic sidebar is not present", async () => {
     render(<App />);
     fireEvent(
-      screen.queryByText("Topics"),
+      screen.getByText("Topics"),
       new MouseEvent("click", {
         bubbles: true,
         cancelable: true,
       })
     );
     fireEvent(
-      screen.queryByTestId("app-main-content"),
+      screen.getByTestId("app-main-content"),
       new MouseEvent("click", {
         bubbles: true,
         cancelable: true,
@@ -169,21 +169,21 @@ describe("When the topic button in the navbar is clicked and then the main app c
   test("The navbar and main content have the ml-0 class", async () => {
     render(<App />);
     fireEvent(
-      screen.queryByText("Topics"),
+      screen.getByText("Topics"),
       new MouseEvent("click", {
         bubbles: true,
         cancelable: true,
       })
     );
     fireEvent(
-      screen.queryByTestId("app-main-content"),
+      screen.getByTestId("app-main-content"),
       new MouseEvent("click", {
         bubbles: true,
         cancelable: true,
       })
     );
 
-    expect(screen.queryByTestId("app-main-screeen")).toHaveClass("ml-0");
+    expect(screen.getByTestId("app-main-screeen")).toHaveClass("ml-0");
   });
 });
 
@@ -191,20 +191,20 @@ describe("When the application is initially rendered and then the main app conte
   test("The topics button is visible", async () => {
     render(<App />);
     fireEvent(
-      screen.queryByTestId("app-main-content"),
+      screen.getByTestId("app-main-content"),
       new MouseEvent("click", {
         bubbles: true,
         cancelable: true,
       })
     );
 
-    expect(screen.queryByText("Topics")).toBeVisible();
+    expect(screen.getByText("Topics")).toBeVisible();
   });
 
   test("The topic sidebar is not present", async () => {
     render(<App />);
     fireEvent(
-      screen.queryByTestId("app-main-content"),
+      screen.getByTestId("app-main-content"),
       new MouseEvent("click", {
         bubbles: true,
         cancelable: true,
@@ -217,14 +217,14 @@ describe("When the application is initially rendered and then the main app conte
   test("The navbar and main content have the ml-0 class", async () => {
     render(<App />);
     fireEvent(
-      screen.queryByTestId("app-main-content"),
+      screen.getByTestId("app-main-content"),
       new MouseEvent("click", {
         bubbles: true,
         cancelable: true,
       })
     );
 
-    expect(screen.queryByTestId("app-main-screeen")).toHaveClass("ml-0");
+    expect(screen.getByTestId("app-main-screeen")).toHaveClass("ml-0");
   });
 });
 
@@ -232,34 +232,34 @@ describe("When the topic button in the navbar is clicked and then close button i
   test("The topics button is visible", async () => {
     render(<App />);
     fireEvent(
-      screen.queryByText("Topics"),
+      screen.getByText("Topics"),
       new MouseEvent("click", {
         bubbles: true,
         cancelable: true,
       })
     );
     fireEvent(
-      screen.queryByText("×"),
+      screen.getByText("×"),
       new MouseEvent("click", {
         bubbles: true,
         cancelable: true,
       })
     );
 
-    expect(screen.queryByText("Topics")).toBeVisible();
+    expect(screen.getByText("Topics")).toBeVisible();
   });
 
   test("The topic sidebar is not present", async () => {
     render(<App />);
     fireEvent(
-      screen.queryByText("Topics"),
+      screen.getByText("Topics"),
       new MouseEvent("click", {
         bubbles: true,
         cancelable: true,
       })
     );
     fireEvent(
-      screen.queryByText("×"),
+      screen.getByText("×"),
       new MouseEvent("click", {
         bubbles: true,
         cancelable: true,
@@ -272,20 +272,20 @@ describe("When the topic button in the navbar is clicked and then close button i
   test("The navbar and main content have the ml-0 class", async () => {
     render(<App />);
     fireEvent(
-      screen.queryByText("Topics"),
+      screen.getByText("Topics"),
       new MouseEvent("click", {
         bubbles: true,
         cancelable: true,
       })
     );
     fireEvent(
-      screen.queryByText("×"),
+      screen.getByText("×"),
       new MouseEvent("click", {
         bubbles: true,
         cancelable: true,
       })
     );
 
-    expect(screen.queryByTestId("app-main-screeen")).toHaveClass("ml-0");
+    expect(screen.getByTestId("app-main-screeen")).toHaveClass("ml-0");
   });
 });
